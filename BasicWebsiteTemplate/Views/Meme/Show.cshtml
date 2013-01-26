@@ -1,0 +1,13 @@
+﻿@model BasicWebsiteTemplate.ViewModels.MemeViewModel
+@{
+    ViewBag.Title = "Meme Show";
+    Layout = "~/Views/Shared/_MemeLayout.cshtml";
+}
+<div id="page">
+
+
+    @{Html.RenderPartial("~/Views/Meme/_MemeDisplay.cshtml", @Model);}
+
+
+
+</div>

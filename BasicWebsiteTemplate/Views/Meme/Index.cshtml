@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Meme Generator";
+    Layout = "~/Views/Shared/_MemeLayout.cshtml";
+
+}
+
+
+
+<div id="page">
+
+    @{Html.RenderAction("Templates");}
+
+
+    @{Html.RenderPartial("~/Views/Meme/_MemeEditor.cshtml");}
+
+
+</div>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/MemeStyle.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+    <script src="@Url.Content("~/Scripts/Meme/jquery.plugin.html2canvas.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/Meme/html2canvas.min.js")" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="header">
+        <p>
+            <ins style="display: inline-table; border: none; height: 40px; margin: 0; padding: 0; position: relative; visibility: visible; width: 728px"></ins>
+        </p>
+
+        <h1><a href="http://www.kol1.co.il/Meme/">Meme Generator</a></h1>
+
+        <div class="menu_container">
+            <ul class="clearfix">
+                <li class="active"><a href="/Meme/Index">Create</a></li>
+                <li class=""><a href="/Meme/All">View All</a></li>
+                <li class=""><a href="#">Page 3</a></li>
+
+                <li>
+                    <div class="header_share">
+                        @*like button*@
+<div class="fb-like" data-href="http://www.kol1.co.il/Meme" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>                            @* google+ button*@
+                            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+                            <g:plusone></g:plusone>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @RenderBody()
+
+    <div id="footer">
+        <ul>
+            <li>Follow us at <a href="http://www.twitter.com/gaplogomaker">TWITTER ACCOUNT</a></li>
+
+            @{
+                BasicWebsiteTemplate.MemeBLL.MemeBL memeBL = new BasicWebsiteTemplate.MemeBLL.MemeBL();
+                int totalMemes = memeBL.CountMemes();
+            }
+            <li>@totalMemes memes made</li>
+            <li>
+                @*tweet button*@
+                <iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.1358286701.html#_=1358498291822&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fwww.makeyourowngaplogo.com%2F&amp;size=m&amp;text=Make%20Your%20Own%20Gap%20Logo&amp;url=http%3A%2F%2Fwww.makeyourowngaplogo.com%2F" class="twitter-share-button twitter-count-horizontal" style="width: 109px; height: 20px;" title="Twitter Tweet Button" data-twttr-rendered="true"></iframe>
+
+            </li>
+
+        </ul>
+    </div>
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37510162-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>

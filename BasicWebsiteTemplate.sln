@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWebsiteTemplate", "BasicWebsiteTemplate\BasicWebsiteTemplate.csproj", "{771F8DEB-2E94-4E26-82FA-73ED97B27E46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{A646F12D-8F6E-48B1-A687-553BCCF23802}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{771F8DEB-2E94-4E26-82FA-73ED97B27E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{771F8DEB-2E94-4E26-82FA-73ED97B27E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{771F8DEB-2E94-4E26-82FA-73ED97B27E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{771F8DEB-2E94-4E26-82FA-73ED97B27E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A646F12D-8F6E-48B1-A687-553BCCF23802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A646F12D-8F6E-48B1-A687-553BCCF23802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A646F12D-8F6E-48B1-A687-553BCCF23802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A646F12D-8F6E-48B1-A687-553BCCF23802}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

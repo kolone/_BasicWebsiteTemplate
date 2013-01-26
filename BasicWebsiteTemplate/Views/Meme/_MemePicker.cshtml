@@ -1,0 +1,41 @@
+﻿@model List<BasicWebsiteTemplate.ViewModels.MemeTemplateViewModel>
+<link href="@Url.Content("~/Content/Elastislide/css/elastislide.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/Elastislide/js/modernizr.custom.17475.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Elastislide/js/jquerypp.custom.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Elastislide/js/jquery.elastislide.js")" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#carousel').elastislide({
+            minItems: 2,
+            // sliding speed
+            speed: 500,
+
+            // sliding easing
+            easing: 'ease-in-out'
+        });
+    });
+</script>
+
+<div id="meme-picker-container">
+    <div class="fixed-bar">
+        <h4>Pick any meme image to caption</h4>
+        <!-- Elastislide Carousel -->
+        <ul id="carousel" class="elastislide-list">
+            @foreach (var memeTemplate in @Model)
+            {
+                <li>
+                    <div class="meme-picker-content meme-picker-dimensions">
+                        <img class="imgMeme imgMemeTemplate" src="@memeTemplate.FileVirtualPath" alt="" />
+                    </div>
+
+                </li>
+            }
+        </ul>
+        <!-- End Elastislide Carousel -->
+    </div>
+</div>
+
+

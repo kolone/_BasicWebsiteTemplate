@@ -1,0 +1,13 @@
+﻿@model List<BasicWebsiteTemplate.ViewModels.MemeViewModel>
+
+@{
+    ViewBag.Title = "All Memes";
+}
+
+<h2>All Memes</h2>
+
+@foreach (var meme in Model)
+{
+    Html.RenderPartial("~/Views/Meme/_MemeDisplay.cshtml", meme);
+
+}

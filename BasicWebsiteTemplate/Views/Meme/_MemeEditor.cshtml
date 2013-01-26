@@ -1,0 +1,191 @@
+﻿<script type="text/javascript">
+
+    function exportImageToCanvas() {
+
+        $('.watermark-text').show();
+
+        $('#meme').html2canvas({
+            canvasWidth: 500,
+            canvasHeight: 374,
+            onrendered: function (canvas) {
+                var img = canvas.toDataURL("image/jpeg", 0.8)
+                uploadImageToServer(img);
+                //$('<img>', { id: 'imgResult', src: img }).appendTo($('#export-result'));
+            }
+        });
+
+    }
+
+    function uploadImageToServerAjax(imgData) {
+
+        //var imgData = $('#imgResult').attr('src');
+        $.ajax({
+            type: 'POST',
+            url: "Meme/UploadImage",
+            data: '{ "imageData" : "' + imgData + '" }',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (msg) {
+                //alert('Image saved successfully !');
+            }
+        });
+
+    }
+
+
+    function uploadImageToServer(imageData) {
+        var input = $("<input>").attr("type", "hidden").attr("name", "imageData").val(imageData);
+        $('#formMeme').append($(input));
+        $('#formMeme').submit();
+    }
+
+
+
+    $('#btnExport').live('click', function () {
+        exportImageToCanvas();
+    });
+
+
+    $('#txtTextInputHeadline').live('keyup', function () {
+        $('#memeTextHeadline span').html($(this).val());
+    });
+
+    $('#txtTextInputSubline').live('keyup', function () {
+        $('#memeTextSubline span').html($(this).val());
+    });
+
+    //Picked a template
+    $('.imgMemeTemplate').live('click', function () {
+        $('#meme').css("background-image", "url(" + $(this).attr('src') + ")");
+        templateChosen();
+
+    });
+
+
+    function rgb2hex(rgb) {
+        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+
+    $(document).ready(function () {
+        var minicolors_settings = {
+            animationSpeed: 100,
+            animationEasing: 'swing',
+            change: null,
+            control: 'hue',
+            defaultValue: rgb2hex($('#export-content .memeText').css('color')),
+            hide: null,
+            hideSpeed: 100,
+            inline: false,
+            letterCase: 'lowercase',
+            opacity: false,
+            position: 'default',
+            show: null,
+            showSpeed: 100,
+            swatchPosition: 'left',
+            textfield: true,
+            theme: 'default',
+            change: function (hex, opacity) {
+                $('#export-content .memeText').css('color', hex);
+            }
+        };
+
+        $('.minicolors').minicolors(minicolors_settings);
+
+        $('.draggable').draggable({
+            containment: $('#meme'),
+        });
+
+        $('.txtMemeTextInput').attr('disabled', 'disabled');
+
+        //settings for drag and drop  file
+        var holder = document.getElementById('meme');
+
+
+
+        holder.ondragover = function () { $(this).addClass('hover'); return false; };
+        holder.ondragend = function () { this.className = ''; return false; };
+        holder.ondrop = function (e) {
+            // this.className = '';
+            e.preventDefault();
+
+            var file = e.dataTransfer.files[0],
+                reader = new FileReader();
+            reader.onload = function (event) {
+                console.log(event.target);
+                holder.style.background = 'url(' + event.target.result + ') no-repeat center';
+            };
+            //console.log(file);
+            reader.readAsDataURL(file);
+            templateChosen();
+            return false;
+        };
+
+        //end drag and drop file settings
+    });
+
+
+    function templateChosen() {
+
+        $('#empty-text').remove()
+        $('.txtMemeTextInput').removeAttr('disabled');
+    }
+
+</script>
+
+
+<script src="../../Content/jquery-miniColors/jquery.minicolors.js"></script>
+
+<link href="@Url.Content("~/Content/jquery-miniColors/jquery.minicolors.css")" rel="stylesheet" type="text/css" />
+
+
+@using (Html.BeginForm("UploadImage", "Meme", FormMethod.Post, new { id = "formMeme" }))
+{
+    <div class="meme-container">
+
+
+        <div id="export-content">
+            <div id="meme" class="meme-dimensions">
+                <div id="empty-text">
+                    <ul style="list-style-type: none;">
+
+                        <li>1. <span>Choose an existing image or drag an image from your desktop</span></li>
+                        <li>2. <span>Enter your caption</span></li>
+                        <li>3. <span>Click Create</span></li>
+                    </ul>
+
+                </div>
+                <div id="memeTextHeadline" class="memeText"><span class="draggable"></span></div>
+                <div id="memeTextSubline" class="memeText"><span class="draggable"></span></div>
+                <p class="watermark-text">Created at:http://www.kol1.co.il/Meme</p>
+            </div>
+
+        </div>
+
+
+
+        <div id="meme-edit-buttons">
+            <span id="title">Edit your meme</span>
+            <div>
+                <input id="txtTextInputHeadline" type="text" class="txtMemeTextInput" placeholder="Enter Text" />
+            </div>
+
+            <div>
+                <input id="txtTextInputSubline" type="text" class="txtMemeTextInput" placeholder="Enter Text" />
+            </div>
+            <div>
+                <input type="text" class="minicolors" />
+            </div>
+
+            <div>
+                <input type="button" value="Create" id="btnExport" class="txtMemeTextInput" />
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+        
+      
+}

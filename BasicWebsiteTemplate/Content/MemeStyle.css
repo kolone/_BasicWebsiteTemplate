@@ -1,0 +1,448 @@
+﻿
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    text-align: center;
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #222222;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-size: 75%;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1;
+    margin-bottom: 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #111111;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+ul, ol {
+    margin: 0 1.5em 1.5em 0;
+}
+
+a {
+    color: #000099;
+    text-decoration: underline;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+.clear {
+    clear: both;
+}
+
+.textbox {
+    padding: 4px;
+    width: 300px;
+}
+/*HEADER*/
+
+
+#header {
+    background: none repeat scroll 0 0 #49688B;
+    color: #FFFFFF;
+    margin-bottom: 35px;
+    padding-bottom: 5px;
+    /*padding-top: 25px;*/
+    text-align: center;
+    margin-top: -15px !important;
+}
+
+    #header h1 {
+        color: #FFFFFF;
+        font-size: 58px;
+        margin-bottom: 0;
+    }
+
+        #header h1 a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+            #header h1 a:hover {
+                text-decoration: underline;
+            }
+
+
+
+    #header .menu_container {
+        left: 25px;
+        margin: 15px auto 0;
+        position: relative;
+        width: 750px;
+    }
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+#header ul {
+    list-style-type: none;
+}
+
+    #header ul li {
+        color: #FFFFFF;
+        float: left;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+        #header ul li a {
+            background: none repeat scroll 0 0 #385575;
+            border-radius: 5px 5px 5px 5px;
+            color: #FFFFFF;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            position: relative;
+            text-decoration: none;
+        }
+
+            #header ul li a:hover {
+                background: none repeat scroll 0 0 #1F4356;
+            }
+
+            #header ul li a .new {
+                background: none repeat scroll 0 0 #C88F3F;
+                border-radius: 5px 5px 5px 5px;
+                color: #FFFFFF;
+                font-size: 11px;
+                padding: 2px 4px;
+                position: absolute;
+                right: -10px;
+                top: -10px;
+            }
+
+        #header ul li.active a {
+            background: none repeat scroll 0 0 #1F4356;
+        }
+
+#header .header_share {
+    margin-left: 25px;
+    margin-top: 0;
+}
+
+
+/*END HEADER*/
+
+#page {
+    margin-bottom: 25px;
+}
+
+/*FOOTER*/
+
+
+#footer {
+    /*background: url("/images/footer_slice.gif") repeat-x scroll 0 0 transparent;*/
+    border-top: 1px solid #AAAAAA;
+    color: #888888;
+    display: block;
+    font-size: 20px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    padding-top: 8px;
+}
+
+
+    #footer ul li.f {
+        margin-right: 35px;
+    }
+
+    #footer ul li {
+        display: inline;
+        margin-right: 15px;
+    }
+
+
+    #footer a {
+        color: #444444;
+    }
+
+/*END FOOTER*/
+
+
+/* MEME CREATE */
+
+
+.meme-dimensions {
+    width: 500px;
+    height: 374px;
+}
+
+#export-content {
+    float: left;
+    width: 500px;
+    position: relative;
+}
+
+
+    #export-content #meme {
+        background: url(/MemesImages/empty.jpg) no-repeat;
+        background-repeat: no-repeat;
+        /* same size as background image */
+        text-align: center;
+        /* You need this to make vertical-align work the way you want it to. */
+        display: table-cell;
+        /* Make this example look pretty. */
+        z-index: 2;
+        border: 2px dashed #ccc;
+    }
+
+        #export-content #meme.hover {
+            border: 10px dashed #333;
+        }
+
+        #export-content #meme #empty-text {
+            text-align: left;
+            margin-left: 20px;
+            font-size: 25px;
+            color: Gray;
+            line-height: 50px;
+        }
+
+
+        #export-content #meme .watermark-text {
+            z-index: 9999;
+            color: white;
+            text-align: center;
+            display: none;
+            position: absolute;
+            bottom: 0;
+            height: 15px;
+            right: 10px;
+            background-color: black;
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+    #export-content .memeText {
+        color: white;
+        font-size: 48pt;
+        width: 500px;
+        height: 374px;
+        max-width: 500px;
+        line-height: 0.8;
+        text-wrap: normal;
+        word-wrap: break-word;
+        display: inline-block;
+        color: white;
+        font-family: Impact, Charcoal, sans-serif;
+        text-shadow: 2px 2px #333333;
+        font-size: 50px;
+        position: absolute;
+        left: auto;
+        right: auto;
+        text-align: center;
+        display: table-cell;
+        overflow: hidden;
+    }
+
+
+    #export-content #memeTextHeadline {
+        padding-top: 25px;
+    }
+
+
+        #export-content #memeTextHeadline span {
+            position: relative;
+            height: 30px !important;
+            cursor: move;
+            z-index: 9999;
+        }
+
+    #export-content #memeTextSubline {
+        overflow: hidden;
+        padding-top: 280px;
+    }
+
+        #export-content #memeTextSubline span {
+            position: relative;
+            height: 30px !important;
+            cursor: move;
+            z-index: 9999;
+        }
+
+
+    #export-content #memeText {
+    }
+
+#export-result {
+    left: 0;
+}
+
+
+#meme-edit-buttons {
+}
+
+    #meme-edit-buttons #title {
+        font-size: 2.7em;
+    }
+
+    #meme-edit-buttons div {
+        margin-top: 15px;
+    }
+
+
+.txtMemeTextInput {
+    width: 250px;
+    padding: 6px;
+    margin-bottom: 15px;
+}
+
+#color-picker-container {
+    padding: 6px;
+    width: 250px;
+}
+
+.minicolors {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* END MEME CREATE */
+
+
+/*MEME SHOW*/
+
+
+.meme-container {
+    background-color: #f3f3f3;
+    padding: 30px;
+    text-align: center;
+    width: 800px;
+}
+
+.meme-content {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgMeme {
+    box-shadow: 0 0 20px -6px #000000;
+}
+
+.lnkDownload {
+    font-size: 110%;
+    font-weight: bold;
+    color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d4d0c8;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    padding: 10px;
+}
+
+    .lnkDownload:hover {
+        border: none;
+        border: 1px solid #777;
+        color: #49688B;
+        background-color: #d4d0c8;
+        cursor: pointer;
+    }
+/* END MEME  SHOW */
+
+
+/*SHARE THIS*/
+
+.share_container {
+    text-align: center;
+    height: 120px;
+    margin-top: 19px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 800px;
+}
+
+.share_content {
+    width: 500px;
+    margin-top: 25px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.share_url {
+    background: url(share/url_ico.png) center left no-repeat;
+    height: 22px;
+    padding-left: 25px;
+    font-size: 13px;
+}
+
+
+.txtShareLink {
+    width: 450px;
+    padding: 5px;
+}
+
+.share_buttons {
+    margin-top: 25px;
+}
+/*END SHARE THIS*/
+
+
+
+/* MEME PICKER */
+
+#meme-picker-container {
+    width: 80%;
+    margin-bottom: 25px;
+}
+
+.meme-picker-content {
+    display: inline;
+}
+
+    .meme-picker-content :hover {
+        opacity: 0.8;
+    }
+
+.meme-picker-dimensions {
+    cursor: pointer;
+}
+
+    .meme-picker-dimensions img {
+        width: 166px;
+        height: 115px;
+    }
